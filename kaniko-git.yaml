@@ -10,7 +10,7 @@ spec:
       args:
         [
           "--context=git://github.com/yqlbu/kaniko-demo",
-          "--destination=hikariai/kaniko-demot:1.0.0",
+          "--destination=hikariai/kaniko-demo:1.0.0",
         ]
       volumeMounts:
         - name: kaniko-secret
