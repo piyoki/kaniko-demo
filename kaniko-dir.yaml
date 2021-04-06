@@ -18,7 +18,7 @@ spec:
           mountPath: /secret
       env:
         - name: DOCKERHUB_REGISTRY_CREDENTIALS
-          value: /secret/kaniko-secret.json
+          value: /secret/regcred.json
   restartPolicy: Never
   volumes:
     - name: kaniko-secret
