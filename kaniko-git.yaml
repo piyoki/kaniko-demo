@@ -11,7 +11,7 @@ spec:
         - --dockerfile=Dockerfile
         - --context=git://github.com/yqlbu/kaniko-demo.git
         - --destination=hikariai/kaniko-demo:1.0.0
-      volumemounts:
+      volumeMounts:
         - name: kaniko-secret
           mountPath: /kaniko/.docker
       # env:
