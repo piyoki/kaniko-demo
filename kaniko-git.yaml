@@ -17,11 +17,11 @@ spec:
       # env:
       #   - name: DOCKERHUB_REGISTRY_CREDENTIALS
       #     value: /secret/regcred.json
-  restartpolicy: never
+  restartPolicy: never
   volumes:
     - name: kaniko-secret
       secret:
-        secretname: regcred
+        secretName: regcred
       items:
         - key: .dockerconfigjson
           path: config.json
