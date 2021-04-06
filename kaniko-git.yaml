@@ -14,12 +14,12 @@ spec:
         ]
       volumeMounts:
         - name: kaniko-secret
-          mountPath: /kaniko/.docker
+          mountPath: /secret
+      env:
+        - name: DOCKERHUB_REGISTRY_CREDENTIALS
+          value: /secret/kaniko-secret.json
   restartPolicy: Never
   volumes:
     - name: kaniko-secret
       secret:
         secretName: regcred
-        items:
-          - key: .dockerconfigjson
-            path: config.json
