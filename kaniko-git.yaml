@@ -8,18 +8,20 @@ spec:
     - name: kaniko
       image: gcr.io/kaniko-project/executor:debug
       args:
-        [
-          "--context=git://github.com/yqlbu/kaniko-demo",
-          "--destination=hikariai/kaniko-demo:1.0.0",
-        ]
-      volumeMounts:
+        - --dockerfile=Dockerfile
+        - --context=git://github.com/yqlbu/kaniko-demo.git
+        - --destination=hikariai/kaniko-demo:1.0.0
+      volumemounts:
         - name: kaniko-secret
-          mountPath: /secret
-      env:
-        - name: DOCKERHUB_REGISTRY_CREDENTIALS
-          value: /secret/regcred.json
-  restartPolicy: Never
+          mountPath: /kaniko/.docker
+      # env:
+      #   - name: DOCKERHUB_REGISTRY_CREDENTIALS
+      #     value: /secret/regcred.json
+  restartpolicy: never
   volumes:
     - name: kaniko-secret
       secret:
-        secretName: regcred
+        secretname: regcred
+      items:
+        - key: .dockerconfigjson
+          path: config.json
