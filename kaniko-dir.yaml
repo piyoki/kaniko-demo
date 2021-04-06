@@ -10,15 +10,15 @@ spec:
       args:
         - --dockerfile=/workspace/Dockerfile
         - --context=dir://workspace
-        - --destination=hikariai/kaniko-demo:1.0.0,
-  volumemounts:
-    - name: kaniko-secret
-      mountPath: /kaniko/.docker
-  restartpolicy: never
+        - --destination=hikariai/kaniko-demo:1.0.0
+      volumeMounts:
+        - name: kaniko-secret
+          mountPath: /kaniko/.docker
+  restartPolicy: Never
   volumes:
     - name: kaniko-secret
       secret:
-        secretname: regcred
-      items:
-        - key: .dockerconfigjson
-          path: config.json
+        secretName: regcred
+        items:
+          - key: .dockerconfigjson
+            path: config.json

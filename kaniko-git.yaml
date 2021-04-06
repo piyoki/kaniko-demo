@@ -11,9 +11,9 @@ spec:
         - --dockerfile=Dockerfile
         - --context=git://github.com/yqlbu/kaniko-demo.git
         - --destination=hikariai/kaniko-demo:1.0.0
-    volumeMounts:
-      - name: kaniko-secret
-        mountPath: /kaniko/.docker
+      volumeMounts:
+        - name: kaniko-secret
+          mountPath: /kaniko/.docker
   restartPolicy: Never
   volumes:
     - name: kaniko-secret
